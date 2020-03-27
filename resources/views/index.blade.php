@@ -26,9 +26,9 @@
     @include('create')
 
     <!-- Table -->
-    <div class="col-8">
+    <div class="col-md-8">
         <!-- <h1 class="display-3">Contacts</h1>     -->
-    <table class="table table-striped">
+    <table class="table table-striped table-responsive-md">
         <thead>
             <tr>
             <td>ID</td>

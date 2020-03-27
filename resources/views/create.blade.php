@@ -1,5 +1,5 @@
 <!-- <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"> -->
-<div class="col-4  border rounded shadow-sm pt-3 pb-3" style="height:100%">
+<div class="col-md-4  border rounded shadow-sm pt-3 pb-3 mb-4" style="height:100%">
     <form method="post" action="{{ route('store') }}">
     @csrf
         <div class="form-group">
