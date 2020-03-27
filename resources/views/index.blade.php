@@ -2,46 +2,59 @@
 
 @section('main')
 <div class="row">
-<div class="col-sm-12">
+<!-- Notification message -->
+    <div class="col-sm-12">
+        @if(session()->get('success'))
+            <div class="alert alert-success">
+            {{ session()->get('success') }}  
+            </div>
+        @endif
 
-  @if(session()->get('success'))
-    <div class="alert alert-success">
-      {{ session()->get('success') }}  
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div><br />
+        @endif
     </div>
-  @endif
-</div>
 
-<div class="col-sm-12">
-    <!-- <h1 class="display-3">Contacts</h1>     -->
-  <table class="table table-striped">
-    <thead>
-        <tr>
-          <td>ID</td>
-          <td>Name</td>
-          <td>Email</td>
-          <td colspan = 2>Actions</td>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach($contacts as $contact)
-        <tr>
-            <td>{{$contact->id}}</td>
-            <td>{{$contact->first_name}} {{$contact->last_name}}</td>
-            <td>{{$contact->email}}</td>
-            <td>
-                <a href="{{ route('edit',$contact->id)}}" class="btn btn-primary">Edit</a>
-            </td>
-            <td>
-                <form action="{{ route('destroy', $contact->id)}}" method="post">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-  </table>
-<div>
+    @include('create')
+
+    <!-- Table -->
+    <div class="col-sm-8">
+        <!-- <h1 class="display-3">Contacts</h1>     -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <td>ID</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td colspan = 2>Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($contacts as $contact)
+            <tr>
+                <td>{{$contact->id}}</td>
+                <td>{{$contact->first_name}} </td>
+                <td>{{$contact->last_name}}</td>
+                <td>{{$contact->email}}</td>
+            
+                <td>
+                    <form action="{{ route('destroy', $contact->id)}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    <div>
 </div>
 @endsection
