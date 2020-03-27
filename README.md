@@ -14,6 +14,7 @@ $ mysql -u root -p # Log on to mysql server
 $ mysql> create database email_directory; # Create database
 $ composer install  # This will install all the dependencies
 $ npm run dev or npm run prod # This compile the scss file to css.
+$ touch .env # To create an env file for environment variables based on the example in the repository.
 $ php artisan migrate # To update database
 $ php artisan serve # To run the application in development mode
 ```
