@@ -17,4 +17,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::resource('/', 'ContactController');
+// Route::resource('/', 'ContactController');
+Route::get('/', 'ContactController@index')->name('index');
+Route::post('/', 'ContactController@store')->name('store');
+Route::delete('/delete/{id}','ContactController@destroy')->name('destroy');

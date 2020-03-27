@@ -20,11 +20,13 @@
             </div><br />
         @endif
     </div>
+</div>
 
+<div class="row">
     @include('create')
 
     <!-- Table -->
-    <div class="col-sm-8">
+    <div class="col-8">
         <!-- <h1 class="display-3">Contacts</h1>     -->
     <table class="table table-striped">
         <thead>
@@ -46,9 +48,9 @@
             
                 <td>
                     <form action="{{ route('destroy', $contact->id)}}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger" type="submit">Delete</button>
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger" type="submit">Delete</button>
                     </form>
                 </td>
             </tr>
@@ -57,4 +59,5 @@
     </table>
     <div>
 </div>
+
 @endsection
